@@ -18,10 +18,16 @@ Oh and remove neovim, it make some problems with vim.
 ## Plugins
 
 This config has just the necessarry plugins installed:  
-
-- [Vim gitgutter](https://github.com/airblade/vim-gitgutter) to see diff between files with git.  
+- [OneDark](https://github.com/joshdick/onedark.vim) onedark theme.  
+- [Vim Airline](https://github.com/vim-airline/vim-airline) Vim statusline.  
+- [NerdTree](https://github.com/preservim/nerdtree) to have a filetree in vim.  
+- [Vim devicons](https://github.com/ryanoasis/vim-devicons) language icons for vim. 
+ [Vim gitgutter](https://github.com/airblade/vim-gitgutter) to see diff between files with git.  
 - [Vim fugitive](https://github.com/tpope/vim-fugitive) to be able to use some powerful git commands in git.
-- 
+- [ALE](https://github.com/dense-analysis/ale) vim linter, autocompleter, a swiss knife for all the LSP things.  
+- [Vim vsnip](https://github.com/hrsh7th/vim-vsnip/tree/master) vscode snippets for vim.  
+- [Vim friendly snippets](https://github.com/rafamadriz/friendly-snippets) vim snippets collection in vscode format.  
+
 ## Command & keybinds
 
 ### General
