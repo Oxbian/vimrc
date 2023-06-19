@@ -1,3 +1,3 @@
 #!/bin/bash
-ln -sf .vimrc ~/.vimrc
-ln -sf .vim ~/.vim
+ln -sf $(pwd)/.vimrc $HOME/.vimrc 
+ln -sf $(pwd)/.vim $HOME/.vim 
