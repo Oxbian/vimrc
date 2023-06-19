@@ -27,6 +27,10 @@ Plug 'airblade/vim-gitgutter' " Git diff
 " Autocompletion, linter, syntax
 Plug 'dense-analysis/ale' " Swiss-knife for all this
 
+" Snippets
+Plug 'hrsh7th/vim-vsnip'
+Plug 'rafamadriz/friendly-snippets'
+
 call plug#end()
 
 filetype plugin indent on " Allow filetype detection, plugins, indentation
@@ -106,3 +110,5 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
 let g:plug_window = 'noautocmd vertical topleft new' " Stop crash if vimplug command called on the nerdtree window
 
+" VIM snip
+let g:vsnip_filetypes = {}
