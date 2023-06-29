@@ -19,17 +19,16 @@ Plug 'joshdick/onedark.vim' " Onedark themes for vim
 Plug 'vim-airline/vim-airline' " Vim statusline
 Plug 'preservim/nerdtree' " Filetree in vim
 Plug 'ryanoasis/vim-devicons' " Icons for vim
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Syntax in nerdtree for files extension
 
 " Git integration
-Plug 'tpope/vim-fugitive' " Git commands & informations
 Plug 'airblade/vim-gitgutter' " Git diff
 
 " Autocompletion, linter, syntax
-Plug 'dense-analysis/ale' " Swiss-knife for all this
-
-" Snippets
-Plug 'hrsh7th/vim-vsnip'
-Plug 'rafamadriz/friendly-snippets'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 call plug#end()
 
@@ -47,12 +46,12 @@ endif
 let g:airline_symbols.colnr = ' ㏇:'
 let g:airline_symbols.colnr = ' ℅:'
 let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.linenr = ' ☰'
 let g:airline_symbols.linenr = ' ␊:'
 let g:airline_symbols.linenr = ' ␤:'
-let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.linenr = ' ¶'
 let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.maxlinenr = '㏑'
+let g:airline_symbols.maxlinenr = ' ㏑'
 let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.paste = 'Þ'
@@ -60,14 +59,33 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.spell = 'Ꞩ'
 let g:airline_symbols.notexists = 'Ɇ'
 let g:airline_symbols.notexists = '∄'
-let g:airline_symbols.whitespace = 'Ξ'
-let g:airline#extensions#ale#enabled = 1 " Allow ALE to use status line
+let g:airline_symbols.whitespace = ' Ξ'
 
 " ALE
+" ALE linter
 let g:ale_linters = {
 \   'javascript': ['eslint'],
-\   'python': ['flake8'],
+\   'python': ['flake8', 'pylint', 'pydocstyle', 'bandit', 'mypy']
 \ }
+
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
+let g:ale_open_list = 1
+
+" ALE fixer
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['black', 'isort']
+\}
+let g:ale_fix_on_save = 1
+
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+let g:ale_set_loclist = 0
+let g:ale_set_signs = 1
+let g:ale_set_highlights = 1
 
 let g:ale_completion_enabled = 1
 let g:ale_completion_symbols = {
@@ -101,14 +119,15 @@ let g:ale_completion_symbols = {
 
 " NerdTree
 let NERDTreeShowHidden=1 " Show hidden files
+let NERDTreeQuitOnOpen = 1 " Close a nerdtree after opening the file
+
 " Close the tab if NERDTree is the only window remaining in it.
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
 " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
 autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+
 " If more than one window and previous buffer was NERDTree, go back to it.
 autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
 let g:plug_window = 'noautocmd vertical topleft new' " Stop crash if vimplug command called on the nerdtree window
-
-" VIM snip
-let g:vsnip_filetypes = {}
