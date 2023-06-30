@@ -25,10 +25,9 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Syntax in nerdtree for files ex
 Plug 'airblade/vim-gitgutter' " Git diff
 
 " Autocompletion, linter, syntax
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'dense-analysis/ale' " Swiss-knife for all this
+Plug 'prabirshrestha/asyncomplete.vim' " Autocompletion
+Plug 'andreypopp/asyncomplete-ale.vim' " Autocompletion with ale
 
 call plug#end()
 
@@ -87,35 +86,7 @@ let g:ale_set_loclist = 0
 let g:ale_set_signs = 1
 let g:ale_set_highlights = 1
 
-let g:ale_completion_enabled = 1
-let g:ale_completion_symbols = {
-\ 'text': '',
-\ 'method': '',
-\ 'function': '',
-\ 'constructor': '',
-\ 'field': '',
-\ 'variable': '',
-\ 'class': '',
-\ 'interface': '',
-\ 'module': '',
-\ 'property': '',
-\ 'unit': 'unit',
-\ 'value': 'val',
-\ 'enum': '',
-\ 'keyword': 'keyword',
-\ 'snippet': '',
-\ 'color': 'color',
-\ 'file': '',
-\ 'reference': 'ref',
-\ 'folder': '',
-\ 'enum member': '',
-\ 'constant': '',
-\ 'struct': '',
-\ 'event': 'event',
-\ 'operator': '',
-\ 'type_parameter': 'type param',
-\ '<default>': 'v'
-\ }
+let g:ale_completion_enabled = 0
 
 " NerdTree
 let NERDTreeShowHidden=1 " Show hidden files

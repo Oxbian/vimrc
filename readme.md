@@ -18,16 +18,16 @@ Oh and remove neovim, it make some problems with vim.
 ## Plugins
 
 This config has just the necessary plugins installed:
+
 - [OneDark](https://github.com/joshdick/onedark.vim) onedark theme.
 - [Vim Airline](https://github.com/vim-airline/vim-airline) Vim statusline.
 - [NerdTree](https://github.com/preservim/nerdtree) to have a file tree in vim.
 - [Vim devicons](https://github.com/ryanoasis/vim-devicons) language icons for vim.
 - [Vim nerdtree syntax highlighting](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight) nerdtree syntax highlighting
 - [Vim gitgutter](https://github.com/airblade/vim-gitgutter) to see diff between files with git.
-- [Vim LSP](https://github.com/prabirshrestha/vim-lsp) to add LSP
-- [Vim LSP settings](https://github.com/mattn/vim-lsp-settings) auto configuration for installing LSP-server
+- [ALE](https://github.com/dense-analysis/ale) vim linter, autocompleter, a Swiss knife for all the LSP things.  
 - [Asyncomplete](https://github.com/prabirshrestha/asyncomplete.vim) async autocompletion
-- [Asyncomplete lsp](https://github.com/prabirshrestha/asyncomplete-lsp.vim) LSP server for asyncomplete & vim-lsp
+- [Asyncomplete ALE](https://github.com/andreypopp/asyncomplete-ale.vim) LSP server for asyncomplete & ALE
 
 ## Command & keybinds
 
@@ -86,10 +86,6 @@ Keybinds:
 - `<leader>d` to toggle GitGutter.
 
 Hunks are the difference between your file and the git file.
-
-### Vim Fugitive
-
-For help, use `:help fugitive`.
 
 ## Linters & fixers
 
