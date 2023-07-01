@@ -20,6 +20,7 @@ Plug 'vim-airline/vim-airline' " Vim statusline
 Plug 'preservim/nerdtree' " Filetree in vim
 Plug 'ryanoasis/vim-devicons' " Icons for vim
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Syntax in nerdtree for files extension
+Plug 'liuchengxu/vim-which-key' " Show leader mapping cheatsheet
 
 " Git integration
 Plug 'airblade/vim-gitgutter' " Git diff
@@ -78,3 +79,5 @@ autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_
 
 " If more than one window and previous buffer was NERDTree, go back to it.
 autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
+
+

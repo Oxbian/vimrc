@@ -38,10 +38,10 @@ map <leader>bd :Bclose<cr>:tabclose<cr>gT
 map <leader>ba :bufdo bd<cr>
 
 " Go to the next buffer
-map <leader>l :bnext<cr>
+map <leader>]b :bnext<cr>
 
 " Go to the previous buffer
-map <leader>h :bprevious<cr>
+map <leader>[b :bprevious<cr>
 
 """"""""""""""""""""""""""""
 " Tabs
@@ -96,14 +96,20 @@ nnoremap <C-f> :NERDTreeToggle<CR>
 """"""""""""""""""""
 let g:gitgutter_enabled=1 " Enable by default gitgutter
 
+" Go to the previous hunk
+nnoremap <leader>[h <Plug>(GitGutterPrevHunk)
+
+" Go to the next hunk
+nnoremap <leader>]h <Plug>(GitGutterNextHunk)
+
 " Enable / Disable GitGutter
-nnoremap <leader>d :GitGutterToggle<CR>
+nnoremap <leader>ht <Plug>(GitGutterToggle)
 
 " Stage Hunk in Git
-nnoremap <leader>hs :GitGutterStageHunk<CR>
+nnoremap <leader>hs <Plug>(GitGutterStageHunk)
 
 " Undo Hunk
-nnoremap <leader>hu :GitGutterUndoHunk<CR>
+nnoremap <leader>hu <Plug>(GitGutterUndoHunk)
 
 " Preview Hunk
 nnoremap <leader>hp :GitGutterPreviewHunk<CR>
@@ -135,3 +141,14 @@ map <leader>s? z=
 """""""""""""""""""
 inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+nnoremap <leader>ld :LspDefinition<cr>
+nnoremap <leader>lnd :LspNextDiagnostic<cr>
+nnoremap <leader>lpd :LspPreviousDiagnostic<cr>
+nnoremap <leader>lf :LspReferences<cr>
+nnoremap <leader>lr :LspRename<cr>
+nnoremap <leader>ls :LspStopServer<cr>
+nnoremap <leader>lp :LspPeekDefinition<cr>
+nnoremap <leader>la :LspCodeAction<cr>
+nnoremap <leader>lh :LspHover<cr>
+nnoremap <leader>ldf :LspDocumentFormat<cr> 
