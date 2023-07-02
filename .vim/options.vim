@@ -1,6 +1,3 @@
-" Mapping
-let mapleader =" " " Set mapleader
-
 " Search options
 set incsearch " Search for partial typed match
 set ignorecase " Search not case sensitive
@@ -89,3 +86,6 @@ set ffs=unix,dos,mac
 set nobackup
 set nowb
 set noswapfile
+
+" Timeout 
+set timeoutlen=500

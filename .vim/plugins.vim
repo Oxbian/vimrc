@@ -17,9 +17,13 @@ call plug#begin('~/.vim/plugged')
 " UI & Themes
 Plug 'joshdick/onedark.vim' " Onedark themes for vim
 Plug 'vim-airline/vim-airline' " Vim statusline
-Plug 'preservim/nerdtree' " Filetree in vim
-Plug 'ryanoasis/vim-devicons' " Icons for vim
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " Syntax in nerdtree for files extension
+Plug 'lambdalisue/fern.vim' " Filetree in vim
+Plug 'lambdalisue/fern-hijack.vim' " Open directory with fern
+Plug 'lambdalisue/fern-renderer-devicons.vim' " Icon in fern
+Plug 'ryanoasis/vim-devicons' " Devicons
+Plug 'lambdalisue/fern-mapping-git.vim' " Fern git mapping
+Plug 'andykog/fern-copynode.vim' " Fern copy node
+Plug 'lambdalisue/fern-git-status.vim' " Fern git status
 Plug 'liuchengxu/vim-which-key' " Show leader mapping cheatsheet
 
 " Git integration
@@ -45,39 +49,94 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 let g:airline_symbols.colnr = ' ㏇:'
-let g:airline_symbols.colnr = ' ℅:'
 let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = ' ☰'
-let g:airline_symbols.linenr = ' ␊:'
-let g:airline_symbols.linenr = ' ␤:'
 let g:airline_symbols.linenr = ' ¶'
 let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.maxlinenr = ' ㏑'
 let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
 let g:airline_symbols.spell = 'Ꞩ'
 let g:airline_symbols.notexists = 'Ɇ'
-let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.whitespace = ' Ξ'
 
 " VIM lsp
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_diagnostics_virtual_text_enabled = 0
 
-" NerdTree
-let NERDTreeShowHidden=1 " Show hidden files
-let NERDTreeQuitOnOpen = 1 " Close a nerdtree after opening the file
+" Fern
+let g:fern#default_hidden = 1
+let g:fern#renderer = 'devicons'
+let g:fern_renderer_devicons_disable_warning = 1
 
-" Close the tab if NERDTree is the only window remaining in it.
-autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" Multi window select in which you open the file
+function! s:init_fern() abort
+  " Use 'select' instead of 'edit' for default 'open' action
+  nmap <buffer> <Plug>(fern-action-open) <Plug>(fern-action-open:select)
+endfunction
 
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+augroup fern-custom
+  autocmd! *
+  autocmd FileType fern call s:init_fern()
+augroup END
 
-" If more than one window and previous buffer was NERDTree, go back to it.
-autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
+" Which Key
+call which_key#register('<Space>', "g:which_key_map")
+let g:which_key_map =  {}
 
+" Buffer key help
+let g:which_key_map.b = { 
+    \ 'name' : '+buffer',
+    \ 'd' : 'current buffer close',
+    \ 'a' : 'close all buffers',
+    \ 'n' : 'go to next buffer',
+    \ 'p' : 'go to previous buffer', 
+    \ }
+
+" Tab key help
+let g:which_key_map.t = { 
+    \ 'name' : '+tab',
+    \ 't<leader>' : 'go to next tab',
+    \ 'n' : 'open new tab',
+    \ 'o' : 'close other tabs',
+    \ 'c' : 'close current tab',
+    \ 'm' : 'move tab after another',
+    \ 'l' : 'switch between this & last tab',
+    \ 'e' : 'open new tab with current buffer',
+    \ }
+
+" Spell key help
+let g:which_key_map.s = { 
+    \ 'name' : '+spell',
+    \ 's' : 'toggle spell check',
+    \ 'n' : 'next spell word',
+    \ 'p' : 'previous spell word',
+    \ 'a' : 'add word in dict',
+    \ '?' : 'list word alternatives',
+    \ }
+
+" Hunk key help
+let g:which_key_map.h = { 
+    \ 'name' : '+git hunk',
+    \ 'l' : 'remove highlight',
+    \ 'p' : 'go previous hunk',
+    \ 'n' : 'go next hunk',
+    \ 't' : 'enable/disable gitgutter',
+    \ 's' : 'stage hunk',
+    \ 'u' : 'undo hunk',
+    \ 'P' : 'preview hunk',
+    \ }
+
+" LSP key help
+let g:which_key_map.l = { 
+    \ 'name' : '+LSP',
+    \ 'd' : 'go to definition',
+    \ 'nd' : 'next diagnostic',
+    \ 'pd' : 'previous diagnostic',
+    \ 'f' : 'go to reference',
+    \ 'r' : 'rename object',
+    \ 's' : 'stop LSP server',
+    \ 'p' : 'peek definition',
+    \ 'a' : 'code action',
+    \ 'h' : 'hover information',
+    \ 'df' : 'format document',
+    \ }
 

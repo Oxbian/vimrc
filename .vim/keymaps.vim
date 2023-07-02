@@ -2,6 +2,12 @@
 "	Keymaps
 """""""""""""""""""""""""""""
 
+let g:mapleader = "\<Space>"
+let g:maplocalleader = ','
+nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+
+
 """"""""""""""""""""
 " Window movement
 """"""""""""""""""""
@@ -38,10 +44,10 @@ map <leader>bd :Bclose<cr>:tabclose<cr>gT
 map <leader>ba :bufdo bd<cr>
 
 " Go to the next buffer
-map <leader>]b :bnext<cr>
+map <leader>bn :bnext<cr>
 
 " Go to the previous buffer
-map <leader>[b :bprevious<cr>
+map <leader>bp :bprevious<cr>
 
 """"""""""""""""""""""""""""
 " Tabs
@@ -89,18 +95,19 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 """""""""""""""""""""""
 
 " Toggle nerdtree
-nnoremap <C-f> :NERDTreeToggle<CR>
+nnoremap <C-f> :Fern .<CR>
 
 """"""""""""""""""""
 " GitGutter
 """"""""""""""""""""
+
 let g:gitgutter_enabled=1 " Enable by default gitgutter
 
 " Go to the previous hunk
-nnoremap <leader>[h <Plug>(GitGutterPrevHunk)
+nnoremap <leader>hp <Plug>(GitGutterPrevHunk)
 
 " Go to the next hunk
-nnoremap <leader>]h <Plug>(GitGutterNextHunk)
+nnoremap <leader>hn <Plug>(GitGutterNextHunk)
 
 " Enable / Disable GitGutter
 nnoremap <leader>ht <Plug>(GitGutterToggle)
@@ -112,7 +119,7 @@ nnoremap <leader>hs <Plug>(GitGutterStageHunk)
 nnoremap <leader>hu <Plug>(GitGutterUndoHunk)
 
 " Preview Hunk
-nnoremap <leader>hp :GitGutterPreviewHunk<CR>
+nnoremap <leader>hP :GitGutterPreviewHunk<CR>
 
 " Always show the status line
 set laststatus=2
@@ -139,16 +146,37 @@ map <leader>s? z=
 """""""""""""""""""
 " LSP
 """""""""""""""""""
+
 inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
+" Go to definition
 nnoremap <leader>ld :LspDefinition<cr>
+
+" Go next diagnostic
 nnoremap <leader>lnd :LspNextDiagnostic<cr>
+
+" Go previous diagnostic
 nnoremap <leader>lpd :LspPreviousDiagnostic<cr>
+
+" Go to reference
 nnoremap <leader>lf :LspReferences<cr>
+
+" Rename object
 nnoremap <leader>lr :LspRename<cr>
+
+" LSP stop server
 nnoremap <leader>ls :LspStopServer<cr>
+
+" peek definition of object
 nnoremap <leader>lp :LspPeekDefinition<cr>
+
+" Code Action
 nnoremap <leader>la :LspCodeAction<cr>
+
+" Hover information
 nnoremap <leader>lh :LspHover<cr>
+
+" Format document
 nnoremap <leader>ldf :LspDocumentFormat<cr> 
+
