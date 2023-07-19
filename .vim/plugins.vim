@@ -35,6 +35,8 @@ Plug 'mattn/vim-lsp-settings' " Automatic vim-lsp installation
 Plug 'prabirshrestha/asyncomplete.vim' " Autocompletion
 Plug 'prabirshrestha/asyncomplete-lsp.vim' " Autocompletion & connection with vim-lsp
 
+" Tools
+Plug 'wakatime/vim-wakatime' " Wakatime
 call plug#end()
 
 filetype plugin indent on " Allow filetype detection, plugins, indentation

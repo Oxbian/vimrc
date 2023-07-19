@@ -35,6 +35,7 @@ This config has just the necessary plugins installed:
 - [Vim-lsp settings](https://github.com/mattn/vim-lsp-settings) easily setup lsp servers for languages.
 - [Asyncomplete](https://github.com/prabirshrestha/asyncomplete.vim) async autocompletion
 - [Asyncomplete & lsp-vim](https://github.com/prabirshrestha/asyncomplete-lsp.vim) use vim-lsp as source for autocompletion lsp server.
+- [Vim Wakatime](https://github.com/wakatime/vim-wakatime) to have wakatime time tracking in vim. 
 
 ## Command & keybinds
 
