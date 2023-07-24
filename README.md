@@ -27,14 +27,11 @@ This config has just the necessary plugins installed:
 ### Graphics utilities
 
 - [Fern](https://github.com/lambdalisue/fern.vim) to have a file tree in vim.
-- [Fern hijack](https://github.com/lambdaalisue/fern-hijack.vim) to open folder preview with fern.
 - [Fern renderer devicons](https://github.com/lambdalisue/fern-renderer-devicons.vim) to have devicons in fern.
 - [Fern git mapping](https://github.com/lambdalisue/fern-mapping-git.vim) to add git stage & unstage in fern.
-- [Fern copy node](https://github.com/andykog/fern-copynode.vim) to copy filename or foldername or filepath or folderpath.
 - [Fern git status](https://github.com/lambdalisue/fern-git-status.vim.git) show file git status in fern.
 - [Vim which key](https://github.com/liuchengxu/vim-which-key) show leader keybinds in a GUI.
 - [Vim devicons](https://github.com/ryanoasis/vim-devicons) language icons for vim.
-- [Vim nerdtree syntax highlighting](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight) nerdtree syntax highlighting
 - [Vim gitgutter](https://github.com/airblade/vim-gitgutter) to see diff between files with git.
 
 ### LSP
@@ -94,10 +91,15 @@ More help at `:help spell`
 
 For help, use `:help fern`.
 Keybinds:
-- `Ctrl+f` open the treeview in the current window
-- `ga` stage a file or unstage if already stagged (TODO)
-- `cp` copy node name (file, folder..)
-- `cP` copy node path
+- `Ctrl+f` open the treeview in the current window,
+- `ga` stage a file from git,  
+- `gd` unstage a file from git,
+- `cp` copy node name (file, folder..),
+- `cP` copy node path,
+- `a` create a file or folder,  
+- `d` delete a file or folder,
+- `r` rename a file or folder,
+- `m` move a file or folder.  
 
 ### Vim Gutter
 

@@ -18,11 +18,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'joshdick/onedark.vim' " Onedark themes for vim
 Plug 'vim-airline/vim-airline' " Vim statusline
 Plug 'lambdalisue/fern.vim' " Filetree in vim
-Plug 'lambdalisue/fern-hijack.vim' " Open directory with fern
 Plug 'lambdalisue/fern-renderer-devicons.vim' " Icon in fern
 Plug 'ryanoasis/vim-devicons' " Devicons
 Plug 'lambdalisue/fern-mapping-git.vim' " Fern git mapping
-Plug 'andykog/fern-copynode.vim' " Fern copy node
 Plug 'lambdalisue/fern-git-status.vim' " Fern git status
 Plug 'liuchengxu/vim-which-key' " Show leader mapping cheatsheet
 
@@ -68,7 +66,13 @@ let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_diagnostics_virtual_text_enabled = 0
 
 " Fern
-let g:fern#default_hidden = 1
+" Disable netrw.
+let g:loaded_netrw  = 1
+let g:loaded_netrwPlugin = 1
+let g:loaded_netrwSettings = 1
+let g:loaded_netrwFileHandlers = 1
+
+let g:fern#default_hidden = 1 " Show hidden files
 let g:fern#renderer = 'devicons'
 let g:fern_renderer_devicons_disable_warning = 1
 
@@ -76,6 +80,28 @@ let g:fern_renderer_devicons_disable_warning = 1
 function! s:init_fern() abort
   " Use 'select' instead of 'edit' for default 'open' action
   nmap <buffer> <Plug>(fern-action-open) <Plug>(fern-action-open:select)
+
+  nmap <buffer> a <Plug>(fern-action-new-path)
+  nmap <buffer> d <Plug>(fern-action-remove)
+  nmap <buffer> m <Plug>(fern-action-move)
+  nmap <buffer> r <Plug>(fern-action-rename)
+  nmap <buffer> v <Plug>(fern-action-open:vsplit)
+  nmap <buffer> ga <Plug>(fern-action-git-stage)
+  nmap <buffer> gd <Plug>(fern-action-git-unstage)
+endfunction
+
+augroup my-fern-hijack
+  autocmd!
+  autocmd BufEnter * ++nested call s:hijack_directory()
+augroup END
+
+function! s:hijack_directory() abort
+  let path = expand('%:p')
+  if !isdirectory(path)
+    return
+  endif
+  bwipeout %
+  execute printf('Fern %s', fnameescape(path))
 endfunction
 
 augroup fern-custom
