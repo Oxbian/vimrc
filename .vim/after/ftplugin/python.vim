@@ -1,5 +1,4 @@
 " Python
-
 let g:lsp_settings = {}
 let g:lsp_settings['pylsp-all'] =
     \ {
@@ -18,3 +17,14 @@ let g:lsp_settings['pylsp-all'] =
     \     }
     \   }}
     \ }
+
+" Define a custom function that executes :LspDocumentFormat and :!isort
+if !exists('*FormatPythonFile')
+    function! FormatPythonFile()
+	silent execute '!black %'
+	silent execute '!isort %'
+    endfunction
+endif
+" Remap the custom function to <leader>ldf
+nnoremap <leader>ldf :call FormatPythonFile()<CR>
+

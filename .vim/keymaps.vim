@@ -38,47 +38,47 @@ nnoremap <C-s> :w!<CR>
 """""""""""""""""""""""""
 
 " Close the current buffer
-map <leader>bd :Bclose<cr>:tabclose<cr>gT
+noremap <leader>bd :Bclose<cr>:tabclose<cr>gT
 
 " Close all the buffers
-map <leader>ba :bufdo bd<cr>
+noremap <leader>ba :bufdo bd<cr>
 
 " Go to the next buffer
-map <leader>bn :bnext<cr>
+noremap <leader>bn :bnext<cr>
 
 " Go to the previous buffer
-map <leader>bp :bprevious<cr>
+noremap <leader>bp :bprevious<cr>
 
 """"""""""""""""""""""""""""
 " Tabs
 """""""""""""""""""""""""""
 
 " Open a new tab
-map <leader>tn :tabnew<cr>
+noremap <leader>tn :tabnew<cr>
 
 " Close all others tab
-map <leader>to :tabonly<cr>
+noremap <leader>to :tabonly<cr>
 
 " Close current tab page
-map <leader>tc :tabclose<cr>
+noremap <leader>tc :tabclose<cr>
 
 " Move tabs after another
-map <leader>tm :tabmove
+noremap <leader>tm :tabmove
 
 " Go to the next tab
-map <leader>t<leader> :tabnext<cr>
+noremap <leader>t<leader> :tabnext<cr>
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
-nmap <leader>tl :exe "tabn ".g:lasttab<CR>
+nnoremap <leader>tl :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
-map <leader>te :tabedit <C-r>=escape(expand("%:p:h"), " ")<cr>/
+noremap <leader>te :tabedit <C-r>=escape(expand("%:p:h"), " ")<cr>/
 
 " Switch CWD to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>
+noremap <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " Specify the behavior when switching between buffers
 try
@@ -91,10 +91,10 @@ endtry
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 """"""""""""""""""""""""
-" NerdTree
+" Fern
 """""""""""""""""""""""
 
-" Toggle nerdtree
+" Toggle fern tree view
 nnoremap <C-f> :Fern .<CR>
 
 """"""""""""""""""""
@@ -129,19 +129,19 @@ set laststatus=2
 """""""""""""""""""""
 
 " Toggle and untoggle spell checking
-map <leader>ss :setlocal spell!<cr>
+noremap <leader>ss :setlocal spell!<cr>
 
 " Next word to spellcheck
-map <leader>sn ]s
+noremap <leader>sn ]s
 
 " Previous word to spellcheck
-map <leader>sp [s
+noremap <leader>sp [s
 
 " Add word into the spellcheck dictionnary
-map <leader>sa zg
+noremap <leader>sa zg
 
 " show the list of alternatives for the word
-map <leader>s? z=
+noremap <leader>s? z=
 
 """""""""""""""""""
 " LSP
@@ -176,7 +176,4 @@ nnoremap <leader>la :LspCodeAction<cr>
 
 " Hover information
 nnoremap <leader>lh :LspHover<cr>
-
-" Format document
-nnoremap <leader>ldf :LspDocumentFormat<cr> 
 

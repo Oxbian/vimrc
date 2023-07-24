@@ -79,15 +79,15 @@ let g:fern_renderer_devicons_disable_warning = 1
 " Multi window select in which you open the file
 function! s:init_fern() abort
   " Use 'select' instead of 'edit' for default 'open' action
-  nmap <buffer> <Plug>(fern-action-open) <Plug>(fern-action-open:select)
+  nnoremap <buffer> <Plug>(fern-action-open) <Plug>(fern-action-open:select)
 
-  nmap <buffer> a <Plug>(fern-action-new-path)
-  nmap <buffer> d <Plug>(fern-action-remove)
-  nmap <buffer> m <Plug>(fern-action-move)
-  nmap <buffer> r <Plug>(fern-action-rename)
-  nmap <buffer> v <Plug>(fern-action-open:vsplit)
-  nmap <buffer> ga <Plug>(fern-action-git-stage)
-  nmap <buffer> gd <Plug>(fern-action-git-unstage)
+  nnoremap <buffer> a <Plug>(fern-action-new-path)
+  nnoremap <buffer> d <Plug>(fern-action-remove)
+  nnoremap < <buffer> m <Plug>(fern-action-move)
+  nnoremap <buffer> r <Plug>(fern-action-rename)
+  nnoremap <buffer> v <Plug>(fern-action-open:vsplit)
+  nnoremap <buffer> ga <Plug>(fern-action-git-stage)
+  nnoremap <buffer> gd <Plug>(fern-action-git-unstage)
 endfunction
 
 augroup my-fern-hijack
