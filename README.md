@@ -19,8 +19,13 @@ Oh and remove neovim, it make some problems with vim.
 
 This config has just the necessary plugins installed:
 
+### Themes
+
 - [OneDark](https://github.com/joshdick/onedark.vim) onedark theme.
 - [Vim Airline](https://github.com/vim-airline/vim-airline) Vim statusline.
+
+### Graphics utilities
+
 - [Fern](https://github.com/lambdalisue/fern.vim) to have a file tree in vim.
 - [Fern hijack](https://github.com/lambdaalisue/fern-hijack.vim) to open folder preview with fern.
 - [Fern renderer devicons](https://github.com/lambdalisue/fern-renderer-devicons.vim) to have devicons in fern.
@@ -31,11 +36,19 @@ This config has just the necessary plugins installed:
 - [Vim devicons](https://github.com/ryanoasis/vim-devicons) language icons for vim.
 - [Vim nerdtree syntax highlighting](https://github.com/tiagofumo/vim-nerdtree-syntax-highlight) nerdtree syntax highlighting
 - [Vim gitgutter](https://github.com/airblade/vim-gitgutter) to see diff between files with git.
+
+### LSP
+
 - [Vim-lsp](https://github.com/prabirshrestha/vim-lsp) linter & formatter for language.
 - [Vim-lsp settings](https://github.com/mattn/vim-lsp-settings) easily setup lsp servers for languages.
 - [Asyncomplete](https://github.com/prabirshrestha/asyncomplete.vim) async autocompletion
 - [Asyncomplete & lsp-vim](https://github.com/prabirshrestha/asyncomplete-lsp.vim) use vim-lsp as source for autocompletion lsp server.
 - [Vim Wakatime](https://github.com/wakatime/vim-wakatime) to have wakatime time tracking in vim. 
+
+### Languages utilities
+
+- [Vim emmet](https://github.com/mattn/emmet-vim) html snippets & utilities to write html faster.
+
 
 ## Command & keybinds
 
@@ -113,6 +126,26 @@ Keybinds:
 - `<leader>la` code action,
 - `<leader>lh` lsp hover,
 - `<leader>ldf` format document.
+
+### Emmet
+
+For help, use `:help emmet`.  
+Keybinds:  
+- `<Alt-e>,` to create tags from an expression,  
+- `<Alt-e>;` to create a tag from a word,  
+- `<Alt-e>u` to update a tag,   
+- `<Alt-e>d` to select a tag and the content of a block,   
+- `<Alt-e>D` to select the content of a block,  
+- `<Alt-e>n` to jump snippet next edit point,  
+- `<Alt-e>N` to jump snippet previous edit point,  
+- `<Alt-e>i` to add width and height on image tag,   
+- `<Alt-e>m` to join multiline in one line,  
+- `<Alt-e>k` to remove the content of a block,  
+- `<Alt-e>j` to split join tag,  
+- `<Alt-e>/` to comment a block,  
+- `<Alt-e>a` to create an anchor (a href),  
+- `<Alt-e>A` make quoted text from an url,  
+- `<Alt-e>c` to convert a code block into html.  
 
 ## Linters & fixers
 

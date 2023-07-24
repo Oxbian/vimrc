@@ -37,6 +37,9 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim' " Autocompletion & connection with vi
 
 " Tools
 Plug 'wakatime/vim-wakatime' " Wakatime
+
+" Language
+Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'js', 'vue'] } 
 call plug#end()
 
 filetype plugin indent on " Allow filetype detection, plugins, indentation
@@ -141,4 +144,7 @@ let g:which_key_map.l = {
     \ 'h' : 'hover information',
     \ 'df' : 'format document',
     \ }
+
+" Emmet
+let g:user_emmet_leader_key='é'
 
