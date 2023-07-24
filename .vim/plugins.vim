@@ -35,6 +35,9 @@ Plug 'mattn/vim-lsp-settings' " Automatic vim-lsp installation
 Plug 'prabirshrestha/asyncomplete.vim' " Autocompletion
 Plug 'prabirshrestha/asyncomplete-lsp.vim' " Autocompletion & connection with vim-lsp
 
+" Language
+Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'js', 'vue'] } 
+
 call plug#end()
 
 filetype plugin indent on " Allow filetype detection, plugins, indentation
@@ -139,4 +142,7 @@ let g:which_key_map.l = {
     \ 'h' : 'hover information',
     \ 'df' : 'format document',
     \ }
+
+" Emmet
+let g:user_emmet_leader_key='é'
 
