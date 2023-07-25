@@ -91,15 +91,15 @@ More help at `:help spell`
 
 For help, use `:help fern`.
 Keybinds:
-- `Ctrl+f` open the treeview in the current window,
+- `Ctrl+f` open the treeview buffer at the left,
 - `ga` stage a file from git,  
 - `gd` unstage a file from git,
-- `cp` copy node name (file, folder..),
-- `cP` copy node path,
 - `a` create a file or folder,  
 - `d` delete a file or folder,
 - `r` rename a file or folder,
-- `m` move a file or folder.  
+- `m` move a file or folder,  
+- `v` open a file in vertical split,  
+- `s` open a file in horizontal split
 
 ### Vim Gutter
 
@@ -160,3 +160,13 @@ python -m venv .venv
 source .venv/bin/activate
 pip install python-lsp-server[all]
 ```
+
+## VM
+
+To code on a virtual machine, I use sshfs, it just mount the system of the vm on my machine and tada!  
+
+```bash
+sudo mkdir /mnt/vm
+sudo sshfs -o allow_other -p 22 user@localhost:/home/user/ /mnt/vm/
+```
+

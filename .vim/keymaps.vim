@@ -95,7 +95,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 """""""""""""""""""""""
 
 " Toggle fern tree view
-nnoremap <C-f> :Fern .<CR>
+nnoremap <C-f> :Fern %:h -drawer -width=35 -toggle<CR>
 
 """"""""""""""""""""
 " GitGutter
