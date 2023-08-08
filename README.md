@@ -93,7 +93,7 @@ For help, use `:help fern`.
 Keybinds:
 - `Ctrl+f` open the treeview buffer at the left,
 - `ga` stage a file from git,  
-- `gd` unstage a file from git,
+- `gu` unstage a file from git,
 - `a` create a file or folder,  
 - `d` delete a file or folder,
 - `r` rename a file or folder,

@@ -2,3 +2,7 @@
 .vim/plugged
 .vim/autoload/*
 .vim/autoload
+vim/plugged/*
+vim/plugged
+vim/autoload/*
+vim/autoload

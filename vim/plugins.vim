@@ -35,6 +35,7 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim' " Autocompletion & connection with vi
 
 " Tools
 Plug 'wakatime/vim-wakatime' " Wakatime
+Plug 'ap/vim-css-color' " rgb, hex color preview
 
 " Language
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'js', 'vue'] } 
@@ -95,7 +96,7 @@ function! s:init_fern() abort
     nmap <buffer> s <Plug>(fern-action-open:split)
     nmap <buffer> v <Plug>(fern-action-open:vsplit)
     nmap <buffer> ga <Plug>(fern-action-git-stage)
-    nmap <buffer> gd <Plug>(fern-action-git-unstage)
+    nmap <buffer> gu <Plug>(fern-action-git-unstage)
 endfunction
 
 augroup my-fern-hijack

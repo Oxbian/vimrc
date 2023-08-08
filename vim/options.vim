@@ -28,7 +28,6 @@ set noexpandtab " Vim will automatically use tab
 set smartindent " Do clever indenting
 set copyindent " Copy indent style of the file
 set preserveindent " Preserve indent style
-
 " Automatic options
 set autowrite " Automatically write the file on certain actions
 set autoread " Automatically read extern changes on the file
