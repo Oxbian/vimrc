@@ -26,10 +26,6 @@ This config has just the necessary plugins installed:
 
 ### Graphics utilities
 
-- [Fern](https://github.com/lambdalisue/fern.vim) to have a file tree in vim.
-- [Fern renderer devicons](https://github.com/lambdalisue/fern-renderer-devicons.vim) to have devicons in fern.
-- [Fern git mapping](https://github.com/lambdalisue/fern-mapping-git.vim) to add git stage & unstage in fern.
-- [Fern git status](https://github.com/lambdalisue/fern-git-status.vim.git) show file git status in fern.
 - [Vim which key](https://github.com/liuchengxu/vim-which-key) show leader keybinds in a GUI.
 - [Vim devicons](https://github.com/ryanoasis/vim-devicons) language icons for vim.
 - [Vim gitgutter](https://github.com/airblade/vim-gitgutter) to see diff between files with git.
@@ -87,19 +83,11 @@ This config has just the necessary plugins installed:
 
 More help at `:help spell`
 
-### Fern
+### Treeview
 
-For help, use `:help fern`.
+For help, use `:help netrw`.
 Keybinds:
 - `Ctrl+f` open the treeview buffer at the left,
-- `ga` stage a file from git,  
-- `gu` unstage a file from git,
-- `a` create a file or folder,  
-- `d` delete a file or folder,
-- `r` rename a file or folder,
-- `m` move a file or folder,  
-- `v` open a file in vertical split,  
-- `s` open a file in horizontal split
 
 ### Vim Gutter
 
