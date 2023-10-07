@@ -17,11 +17,7 @@ call plug#begin('~/.vim/plugged')
 " UI & Themes
 Plug 'joshdick/onedark.vim' " Onedark themes for vim
 Plug 'vim-airline/vim-airline' " Vim statusline
-Plug 'lambdalisue/fern.vim' " Filetree in vim
-Plug 'lambdalisue/fern-renderer-devicons.vim' " Icon in fern
 Plug 'ryanoasis/vim-devicons' " Devicons
-Plug 'lambdalisue/fern-mapping-git.vim' " Fern git mapping
-Plug 'lambdalisue/fern-git-status.vim' " Fern git status
 Plug 'liuchengxu/vim-which-key' " Show leader mapping cheatsheet
 
 " Git integration
@@ -65,58 +61,6 @@ let g:airline_symbols.whitespace = ' Ξ'
 " VIM lsp
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_diagnostics_virtual_text_enabled = 0
-
-" Fern
-" Disable netrw.
-let g:loaded_netrw  = 1
-let g:loaded_netrwPlugin = 1
-let g:loaded_netrwSettings = 1
-let g:loaded_netrwFileHandlers = 1
-
-
-let g:fern#default_hidden = 1 " Show hidden files
-let g:fern#renderer = 'devicons'
-let g:fern_renderer_devicons_disable_warning = 1
-
-" Multi window select in which you open the file
-function! s:init_fern() abort
-    nmap <buffer><expr>
-	\ <Plug>(fern-my-open-expand-collapse)
-        \ fern#smart#leaf(
-        \   "\<Plug>(fern-action-open:select)",
-        \   "\<Plug>(fern-action-expand)",
-        \   "\<Plug>(fern-action-collapse)",
-        \ )
-    nmap <buffer> action <Plug>(fern-action-choice)
-    nmap <buffer> <CR> <Plug>(fern-my-open-expand-collapse)
-    nmap <buffer> a <Plug>(fern-action-new-path)
-    nmap <buffer> d <Plug>(fern-action-remove)
-    nmap <buffer> m <Plug>(fern-action-move)
-    nmap <buffer> r <Plug>(fern-action-rename)
-    nmap <buffer> s <Plug>(fern-action-open:split)
-    nmap <buffer> v <Plug>(fern-action-open:vsplit)
-    nmap <buffer> ga <Plug>(fern-action-git-stage)
-    nmap <buffer> gu <Plug>(fern-action-git-unstage)
-endfunction
-
-augroup my-fern-hijack
-    autocmd!
-    autocmd BufEnter * ++nested call s:hijack_directory()
-augroup END
-
-function! s:hijack_directory() abort
-    let path = expand('%:p')
-    if !isdirectory(path)
-	return
-    endif
-    bwipeout %
-    execute printf('Fern %s', fnameescape(path))
-endfunction
-
-augroup fern-custom
-    autocmd! *
-    autocmd FileType fern call s:init_fern()
-augroup END
 
 " Which Key
 call which_key#register('<Space>', "g:which_key_map")
