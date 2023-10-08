@@ -16,8 +16,6 @@ call plug#begin('~/.vim/plugged')
 
 " UI & Themes
 Plug 'joshdick/onedark.vim' " Onedark themes for vim
-Plug 'vim-airline/vim-airline' " Vim statusline
-Plug 'ryanoasis/vim-devicons' " Devicons
 Plug 'liuchengxu/vim-which-key' " Show leader mapping cheatsheet
 
 " Git integration
@@ -42,21 +40,39 @@ filetype plugin indent on " Allow filetype detection, plugins, indentation
 """""""""""""""""""""""""
 "	Configuration
 """""""""""""""""""""""""
-" VIM airline
-let g:airline_theme='onedark' " Status line color & configuration
+" Netrw (filetree built-in vim)
+let g:netrw_keepdir = 0 " Reload buffer usefull when moving or removing file
+let g:netrw_winsize = 10 " Size of filetree buffer
+let g:netrw_banner = 0 " Removing netrw banner
+let g:netrw_localcopydircmd = 'cp -r' " Changing copy command to add recursive copy
 
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.colnr = ' ㏇:'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = ' ¶'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = 'Ɇ'
-let g:airline_symbols.whitespace = ' Ξ'
+" Statusline
+let g:currentmode={
+	\ 'n'  : 'NORMAL ',
+	\ 'v'  : 'VISUAL ',
+	\ 'V'  : 'V·Line ',
+	\ "\<C-V>" : 'V·Block ',
+	\ 'i'  : 'INSERT ',
+	\ 'R'  : 'R ',
+	\ 'Rv' : 'V·Replace ',
+	\ 'c'  : 'Command ',
+	\}
+set laststatus=2
+set statusline=
+" VIM Mode
+set statusline+=\ %{toupper(g:currentmode[mode()])}%{&spell?'[SPELL]':''}\|
+" File (path, modified, readonly ? )
+set statusline+=%h\ %F
+set statusline+=%{&modified?'\ [+]':''}
+set statusline+=%{&readonly?'\ ':''}
+" Filetype
+set statusline+=%=%y
+set statusline+=\ \|\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\ \|\ [%{&fileformat}\]
+" Line count and percentage
+set statusline+=\ \|\ %l:%c
+set statusline+=\ [%p%%]\ 
+
 
 " VIM lsp
 let g:lsp_diagnostics_echo_cursor = 1

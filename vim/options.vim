@@ -12,7 +12,6 @@ set number " Show line number
 set relativenumber " Show relative line number
 set cursorline " Select the current line
 set showmatch " Show matching brackets when overred
-set laststatus=2 " Fix for tabline
 set noshowmode " Disable the -- INSERTION -- default comment
 set so=7 " Set 7 lines to the cursor - when moving vertically
 
@@ -32,11 +31,7 @@ set preserveindent " Preserve indent style
 set autowrite " Automatically write the file on certain actions
 set autoread " Automatically read extern changes on the file
 
-" Netrw (filetree built-in vim)
-let g:netrw_keepdir = 0 " Reload buffer usefull when moving or removing file
-let g:netrw_winsize = 10 " Size of filetree buffer
-let g:netrw_banner = 0 " Removing netrw banner
-let g:netrw_localcopydircmd = 'cp -r' " Changing copy command to add recursive copy
+
 
 " System
 if has('unnamedplus') " ALlow OS & vim clipboard sync

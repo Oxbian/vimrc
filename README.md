@@ -22,12 +22,10 @@ This config has just the necessary plugins installed:
 ### Themes
 
 - [OneDark](https://github.com/joshdick/onedark.vim) onedark theme.
-- [Vim Airline](https://github.com/vim-airline/vim-airline) Vim statusline.
 
 ### Graphics utilities
 
 - [Vim which key](https://github.com/liuchengxu/vim-which-key) show leader keybinds in a GUI.
-- [Vim devicons](https://github.com/ryanoasis/vim-devicons) language icons for vim.
 - [Vim gitgutter](https://github.com/airblade/vim-gitgutter) to see diff between files with git.
 
 ### LSP
@@ -88,6 +86,9 @@ More help at `:help spell`
 For help, use `:help netrw`.
 Keybinds:
 - `Ctrl+f` open the treeview buffer at the left,
+- `gh` show/hide hidden files,
+- `gp` change permission of local file
+- `I` show netrw banner,
 
 ### Vim Gutter
 
