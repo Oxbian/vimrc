@@ -91,10 +91,10 @@ endtry
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 """"""""""""""""""""""""
-" Fern
+" Netrw
 """""""""""""""""""""""
 
-" Toggle fern tree view
+" Toggle tree view
 nnoremap <C-f> :Lexplore<CR>
 
 """"""""""""""""""""

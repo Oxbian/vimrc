@@ -31,8 +31,6 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim' " Autocompletion & connection with vi
 Plug 'wakatime/vim-wakatime' " Wakatime
 Plug 'ap/vim-css-color' " rgb, hex color preview
 
-" Language
-Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'js', 'vue'] } 
 call plug#end()
 
 filetype plugin indent on " Allow filetype detection, plugins, indentation
@@ -72,7 +70,6 @@ set statusline+=\ \|\ [%{&fileformat}\]
 " Line count and percentage
 set statusline+=\ \|\ %l:%c
 set statusline+=\ [%p%%]\ 
-
 
 " VIM lsp
 let g:lsp_diagnostics_echo_cursor = 1
@@ -139,7 +136,3 @@ let g:which_key_map.l = {
     \ 'h' : 'hover information',
     \ 'df' : 'format document',
     \ }
-
-" Emmet
-let g:user_emmet_leader_key='é'
-

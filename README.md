@@ -38,7 +38,6 @@ This config has just the necessary plugins installed:
 
 ### Languages utilities
 
-- [Vim emmet](https://github.com/mattn/emmet-vim) html snippets & utilities to write html faster.
 
 
 ## Command & keybinds
@@ -89,6 +88,14 @@ Keybinds:
 - `gh` show/hide hidden files,
 - `gp` change permission of local file
 - `I` show netrw banner,
+  
+- `j/k` movement,
+- `-` go up one dir,
+- `<enter>` go down one dir,
+  
+- `d` create a directory,
+- `%` create a file,
+- `R` rename/move a file,
 
 ### Vim Gutter
 
@@ -117,26 +124,6 @@ Keybinds:
 - `<leader>la` code action,
 - `<leader>lh` lsp hover,
 - `<leader>ldf` format document.
-
-### Emmet
-
-For help, use `:help emmet`.  
-Keybinds:  
-- `<Alt-e>,` to create tags from an expression,  
-- `<Alt-e>;` to create a tag from a word,  
-- `<Alt-e>u` to update a tag,   
-- `<Alt-e>d` to select a tag and the content of a block,   
-- `<Alt-e>D` to select the content of a block,  
-- `<Alt-e>n` to jump snippet next edit point,  
-- `<Alt-e>N` to jump snippet previous edit point,  
-- `<Alt-e>i` to add width and height on image tag,   
-- `<Alt-e>m` to join multiline in one line,  
-- `<Alt-e>k` to remove the content of a block,  
-- `<Alt-e>j` to split join tag,  
-- `<Alt-e>/` to comment a block,  
-- `<Alt-e>a` to create an anchor (a href),  
-- `<Alt-e>A` make quoted text from an url,  
-- `<Alt-e>c` to convert a code block into html.  
 
 ## Linters & fixers
 
