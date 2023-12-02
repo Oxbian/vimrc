@@ -8,7 +8,9 @@ You will need `vim` and `git` to be able to use this configuration.
 
 Normally if you run the `install.sh` script it will work, but if you have a problem, try to install vim plug and check if your problem is solved.
 
-```bash
+**Be careful the install.sh script remove everything in `.config/vim` and in `$HOME/.vim` !**
+
+```sh
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
@@ -34,9 +36,6 @@ This config has just the necessary plugins installed:
 
 - [CoC](https://github.com/neoclide/coc.nvim) a LSP plugin that work like VsCode LSP, and in Node (yeah I don't like it too but no choice...).
 - [Vim Wakatime](https://github.com/wakatime/vim-wakatime) to have wakatime time tracking in vim. 
-
-### Languages utilities
-
 
 
 ## Command & keybinds
