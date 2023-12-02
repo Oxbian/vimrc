@@ -16,16 +16,14 @@ call plug#begin('~/.vim/plugged')
 
 " UI & Themes
 Plug 'joshdick/onedark.vim' " Onedark themes for vim
+Plug 'mcchrish/zenbones.nvim' " White / dark colorscheme
 Plug 'liuchengxu/vim-which-key' " Show leader mapping cheatsheet
 
 " Git integration
 Plug 'airblade/vim-gitgutter' " Git diff
 
 " Autocompletion, linter, syntax
-Plug 'prabirshrestha/vim-lsp' " Linter & formatter
-Plug 'mattn/vim-lsp-settings' " Automatic vim-lsp installation
-Plug 'prabirshrestha/asyncomplete.vim' " Autocompletion
-Plug 'prabirshrestha/asyncomplete-lsp.vim' " Autocompletion & connection with vim-lsp
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Tools
 Plug 'wakatime/vim-wakatime' " Wakatime
@@ -71,9 +69,6 @@ set statusline+=\ \|\ [%{&fileformat}\]
 set statusline+=\ \|\ %l:%c
 set statusline+=\ [%p%%]\ 
 
-" VIM lsp
-let g:lsp_diagnostics_echo_cursor = 1
-let g:lsp_diagnostics_virtual_text_enabled = 0
 
 " Which Key
 call which_key#register('<Space>', "g:which_key_map")
@@ -123,16 +118,15 @@ let g:which_key_map.h = {
     \ }
 
 " LSP key help
-let g:which_key_map.l = { 
+let g:which_key_map.g = { 
     \ 'name' : '+LSP',
     \ 'd' : 'go to definition',
-    \ 'nd' : 'next diagnostic',
-    \ 'pd' : 'previous diagnostic',
-    \ 'f' : 'go to reference',
-    \ 'r' : 'rename object',
-    \ 's' : 'stop LSP server',
-    \ 'p' : 'peek definition',
-    \ 'a' : 'code action',
-    \ 'h' : 'hover information',
-    \ 'df' : 'format document',
+    \ 'n' : 'next diagnostic',
+    \ 'p' : 'previous diagnostic',
+    \ 'r' : 'go to reference',
+    \ 'R' : 'rename object',
+	\ 'y' : 'type definition',
+	\ 'i' : 'go to implementation',
+	\ 'h' : 'documentation',
+	\ 'f' : 'format document',
     \ }

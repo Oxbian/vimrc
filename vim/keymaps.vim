@@ -7,6 +7,9 @@ let g:maplocalleader = ','
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 
+" Treat long paragraph as a line
+map j gj
+map k gk
 
 """"""""""""""""""""
 " Window movement
@@ -146,34 +149,43 @@ noremap <leader>s? z=
 """""""""""""""""""
 " LSP
 """""""""""""""""""
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
-" Go to definition
-nnoremap <leader>ld :LspDefinition<cr>
+nmap <silent> gp <Plug>(coc-diagnostic-prev)
+nmap <silent> gn <Plug>(coc-diagnostic-next)
 
-" Go next diagnostic
-nnoremap <leader>lnd :LspNextDiagnostic<cr>
+" GoTo code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
-" Go previous diagnostic
-nnoremap <leader>lpd :LspPreviousDiagnostic<cr>
+" Use K to show documentation in preview window
+nnoremap <silent> gh :call ShowDocumentation()<CR>
 
-" Go to reference
-nnoremap <leader>lf :LspReferences<cr>
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
 
-" Rename object
-nnoremap <leader>lr :LspRename<cr>
+" Highlight the symbol and its references when holding the cursor
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" LSP stop server
-nnoremap <leader>ls :LspStopServer<cr>
+" Symbol renaming
+nmap <leader>gR <Plug>(coc-rename)
 
-" peek definition of object
-nnoremap <leader>lp :LspPeekDefinition<cr>
-
-" Code Action
-nnoremap <leader>la :LspCodeAction<cr>
-
-" Hover information
-nnoremap <leader>lh :LspHover<cr>
-
+" Formatting selected code
+xmap <leader>gf  <Plug>(coc-format-selected)
+nmap <leader>gf  <Plug>(coc-format-selected)

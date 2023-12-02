@@ -22,18 +22,17 @@ This config has just the necessary plugins installed:
 ### Themes
 
 - [OneDark](https://github.com/joshdick/onedark.vim) onedark theme.
+- [Zenbones](https://github.com/mcchrish/zenbones.nvim) zenbones theme.
 
 ### Graphics utilities
 
 - [Vim which key](https://github.com/liuchengxu/vim-which-key) show leader keybinds in a GUI.
 - [Vim gitgutter](https://github.com/airblade/vim-gitgutter) to see diff between files with git.
+- [Css color](https://github.com/ap/vim-css-color) preview css colors.
 
 ### LSP
 
-- [Vim-lsp](https://github.com/prabirshrestha/vim-lsp) linter & formatter for language.
-- [Vim-lsp settings](https://github.com/mattn/vim-lsp-settings) easily setup lsp servers for languages.
-- [Asyncomplete](https://github.com/prabirshrestha/asyncomplete.vim) async autocompletion
-- [Asyncomplete & lsp-vim](https://github.com/prabirshrestha/asyncomplete-lsp.vim) use vim-lsp as source for autocompletion lsp server.
+- [CoC](https://github.com/neoclide/coc.nvim) a LSP plugin that work like VsCode LSP, and in Node (yeah I don't like it too but no choice...).
 - [Vim Wakatime](https://github.com/wakatime/vim-wakatime) to have wakatime time tracking in vim. 
 
 ### Languages utilities
@@ -112,18 +111,17 @@ Hunks are the difference between your file and the git file.
 
 ### LSP
 
-For help, use `:help vim-lsp`.  
+For help, use `:help coc`.  
 Keybinds:
-- `<leader>ld` go to the definition,
-- `<leader>lnd` go to the next diagnostic,
-- `<leader>lpd` go to the previous diagnostic,
-- `<leader>lf` go to the reference,
-- `<leader>lr` rename element,
-- `<leader>ls` stop lsp server,
-- `<leader>lp` peek a view to the definition,
-- `<leader>la` code action,
-- `<leader>lh` lsp hover,
-- `<leader>ldf` format document.
+- `<leader>gd` go to the definition,
+- `<leader>gn` go to the next diagnostic,
+- `<leader>gp` go to the previous diagnostic,
+- `<leader>gr` go to the reference,
+- `<leader>gR` rename element,
+- `<leader>gy` type definition,
+- `<leader>gi` go to implementation,
+- `<leader>gh` documentation,
+- `<leader>gf` format document.
 
 ## Linters & fixers
 

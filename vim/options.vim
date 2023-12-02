@@ -6,8 +6,9 @@ set hlsearch " Highlight all match search pattern
 
 " Graphics options
 syntax on " Show syntax color
+set termguicolors
 set background=dark " Set vim style as dark
-colorscheme onedark " Set colorscheme as onedark
+colorscheme zenwritten " Set colorscheme as onedark
 set number " Show line number
 set relativenumber " Show relative line number
 set cursorline " Select the current line
@@ -44,6 +45,7 @@ set updatetime=500 " Delay before vim write swap file, lower better for gitgutte
 " Autocomplete
 set completeopt=menu,menuone,popup,noselect,noinsert " Show a pop up for command completion
 set wildmenu " Turn on wildmenu
+filetype plugin on
 
 " Avoid garbled characters in Chinese language windows OS
 let $LANG='en' " Setting lang as en
