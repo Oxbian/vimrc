@@ -6,44 +6,40 @@ set hlsearch " Highlight all match search pattern
 
 " Graphics options
 syntax on " Show syntax color
-set termguicolors
-set background=dark " Set vim style as dark
-colorscheme zenwritten " Set colorscheme as onedark
 set number " Show line number
+set colorscheme=onedark " Set vim theme to onedark
+set colorcolumn=80 " Add an indicator for 80 char limit
 set relativenumber " Show relative line number
 set cursorline " Select the current line
-set showmatch " Show matching brackets when overred
+set showmatch " Show matching brackets when hovered
 set noshowmode " Disable the -- INSERTION -- default comment
 set so=7 " Set 7 lines to the cursor - when moving vertically
 
 " Mouse options
 set mouse=a " Allow the mouse to do all the editing
-set ruler " Show the cursor position on the tagline
 
 " Indent options
 set tabstop=4 " Size of a tab
 set shiftwidth=4 " Number of space for each indent
 set softtabstop=0 " Useless indent
-set noexpandtab " Vim will automatically use tab
+set noexpandtab " Vim will automatically use tab and not spaces
 set smartindent " Do clever indenting
 set copyindent " Copy indent style of the file
-set preserveindent " Preserve indent style
 " Automatic options
 set autowrite " Automatically write the file on certain actions
-set autoread " Automatically read extern changes on the file
-
-
+set autoread " Automatically read external changes on the file
 
 " System
-if has('unnamedplus') " ALlow OS & vim clipboard sync
+if has('unnamedplus') " Allow OS & vim clipboard sync
 	set clipboard=unnamedplus
 endif
 set undofile " Save undo history
-set history =500 " Max line vim remember
-set updatetime=500 " Delay before vim write swap file, lower better for gitgutter
+set history=500 " Max line vim remember
+set updatetime=500 " Delay before vim write swap file, better for gitgutter
 
 " Autocomplete
-set completeopt=menu,menuone,popup,noselect,noinsert " Show a pop up for command completion
+set completeopt=menu,menuone,popup,noselect,noinsert	" Show a pop up for 
+														" command completion
 set wildmenu " Turn on wildmenu
 filetype plugin on
 
@@ -72,7 +68,7 @@ set lazyredraw
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
-" Set utf8 as standard encoding and en_US as the standard language
+" Set UTF-8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
 " Use Unix as the standard file type

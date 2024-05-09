@@ -140,7 +140,7 @@ noremap <leader>sn ]s
 " Previous word to spellcheck
 noremap <leader>sp [s
 
-" Add word into the spellcheck dictionnary
+" Add word into the spellcheck dictionary
 noremap <leader>sa zg
 
 " show the list of alternatives for the word

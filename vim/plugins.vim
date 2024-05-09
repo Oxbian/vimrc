@@ -16,7 +16,6 @@ call plug#begin('~/.vim/plugged')
 
 " UI & Themes
 Plug 'joshdick/onedark.vim' " Onedark themes for vim
-Plug 'mcchrish/zenbones.nvim' " White / dark colorscheme
 Plug 'liuchengxu/vim-which-key' " Show leader mapping cheatsheet
 
 " Git integration
