@@ -8,7 +8,8 @@ You will need `vim` and `git` to be able to use this configuration.
 
 Normally if you run the `install.sh` script it will work, but if you have a problem, try to install vim plug and check if your problem is solved.
 
-**Be careful the install.sh script remove everything in `.config/vim` and in `$HOME/.vim` !**
+*This vim config is expected to be cloned into `.config/vim`*
+**Be careful the install.sh script remove everything in `$HOME/.vim` !**
 
 ```sh
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -24,7 +25,6 @@ This config has just the necessary plugins installed:
 ### Themes
 
 - [OneDark](https://github.com/joshdick/onedark.vim) onedark theme.
-- [Zenbones](https://github.com/mcchrish/zenbones.nvim) zenbones theme.
 
 ### Graphics utilities
 
@@ -94,6 +94,7 @@ Keybinds:
 - `d` create a directory,
 - `%` create a file,
 - `R` rename/move a file,
+- `D` delete a file
 
 ### Vim Gutter
 

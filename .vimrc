@@ -1,4 +1,4 @@
 " Vim configuration, do not delete
-source ~/.config/vim/plugins.vim
-source ~/.config/vim/options.vim
-source ~/.config/vim/keymaps.vim
+source ~/.config/vim/conf/plugins.vim
+source ~/.config/vim/conf/options.vim
+source ~/.config/vim/conf/keymaps.vim

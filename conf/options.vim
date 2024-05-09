@@ -7,7 +7,7 @@ set hlsearch " Highlight all match search pattern
 " Graphics options
 syntax on " Show syntax color
 set number " Show line number
-set colorscheme=onedark " Set vim theme to onedark
+colorscheme onedark " Set vim theme to onedark
 set colorcolumn=80 " Add an indicator for 80 char limit
 set relativenumber " Show relative line number
 set cursorline " Select the current line
