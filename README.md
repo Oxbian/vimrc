@@ -9,6 +9,11 @@ You will need `vim` and `git` to be able to use this configuration.
 Normally if you run the `install.sh` script it will work, but if you have a problem, try to install vim plug and check if your problem is solved.
 
 *This vim config is expected to be cloned into `.config/vim`*
+
+```sh
+git clone https://git.arka.rocks/Oxbian/vimrc.git $HOME/.config/vim
+```
+
 **Be careful the install.sh script remove everything in `$HOME/.vim` !**
 
 ```sh

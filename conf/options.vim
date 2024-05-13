@@ -33,7 +33,7 @@ set autoread " Automatically read external changes on the file
 if has('unnamedplus') " Allow OS & vim clipboard sync
 	set clipboard=unnamedplus
 endif
-set undofile " Save undo history
+set noundofile " Save undo history
 set history=500 " Max line vim remember
 set updatetime=500 " Delay before vim write swap file, better for gitgutter
 
