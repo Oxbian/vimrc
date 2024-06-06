@@ -1,0 +1,6 @@
+{
+	"snippets.userSnippetsDirectory": "~/.config/vim/snippets",
+	"snippet.statusText": "true",
+	"snippets.ultisnips.directories": ["~/.config/vim/snippets"],
+	"snippets.textmateSnippetsRoots": ["~/.config/vim/snippets"]
+}

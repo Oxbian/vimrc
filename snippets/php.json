@@ -1,0 +1,50 @@
+{
+     "Class":{
+          "scope": "php",
+          "prefix": "class",
+          "body": [
+               "class $1",
+               "{",
+                "    ${2:// Attributes}",
+                "",
+                "    public function __construct($3)",
+                "    {",
+                "       ${4:// Attributes construction}",
+                "    }",
+                "",
+                "    public function __destruct($5)",
+                "    {",
+                "       ${6:// Attributes destruction}",
+                "    }",
+                "",
+                "    public function info()",
+                "    {",
+                "       ${7:// Showing attributes data}",
+                "    }",
+               "}"
+          ],
+          "description": "Class with constructor, destructor, info"
+     },
+     "Class Get":{
+          "scope":"php",
+          "prefix":"get",
+          "body": [
+               "public function get_$1()",
+               "{",
+               "    return \\$this->${2:$1};",
+               "}"
+          ],
+          "description": "Class get function for an attribute"
+     },
+     "Class Set":{
+          "scope":"php",
+          "prefix":"set",
+          "body": [
+               "public function set_$1($2)",
+               "{",
+               "    \\$this->$1 = $2;",
+               "}"
+          ],
+          "description": "Class set function for an attribute"
+     }
+}
