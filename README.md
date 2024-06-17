@@ -6,7 +6,8 @@ This repo contains my vim configuration, hope it will be useful for you.
 
 You will need `vim` and `git` to be able to use this configuration.
 
-Normally if you run the `install.sh` script it will work, but if you have a problem, try to install vim plug and check if your problem is solved.
+Normally if you run the `install.sh` script it will work, but if you have a
+problem, try to install vim plug and check if your problem is solved.
 
 *This vim config is expected to be cloned into `.config/vim`*
 
@@ -33,15 +34,18 @@ This config has just the necessary plugins installed:
 
 ### Graphics utilities
 
-- [Vim which key](https://github.com/liuchengxu/vim-which-key) show leader keybinds in a GUI.
-- [Vim gitgutter](https://github.com/airblade/vim-gitgutter) to see diff between files with git.
+- [Vim which key](https://github.com/liuchengxu/vim-which-key) show leader
+keybinds in a GUI.
+- [Vim gitgutter](https://github.com/airblade/vim-gitgutter) to see diff between
+files with git.
 - [Css color](https://github.com/ap/vim-css-color) preview css colors.
 
 ### LSP
 
-- [CoC](https://github.com/neoclide/coc.nvim) a LSP plugin that work like VsCode LSP, and in Node (yeah I don't like it too but no choice...).
-- [Vim Wakatime](https://github.com/wakatime/vim-wakatime) to have wakatime time tracking in vim. 
-
+- [CoC](https://github.com/neoclide/coc.nvim) a LSP plugin that work like VsCode
+LSP, and in Node (yeah I don't like it too but no choice...).
+- [Vim Wakatime](https://github.com/wakatime/vim-wakatime) to have wakatime time
+tracking in vim.
 
 ## Command & keybinds
 
@@ -86,7 +90,8 @@ More help at `:help spell`
 ### Treeview
 
 For help, use `:help netrw`.
-Keybinds:
+Key binds:
+
 - `Ctrl+f` open the treeview buffer at the left,
 - `gh` show/hide hidden files,
 - `gp` change permission of local file
@@ -105,6 +110,7 @@ Keybinds:
 
 For help, use `:help gitgutter`.  
 Keybinds:
+
 - `<leader>hp` go to the previous hunk,
 - `<leader>hn` go to the next hunk,
 - `<leader>hP` to preview hunk,
@@ -114,10 +120,11 @@ Keybinds:
 
 Hunks are the difference between your file and the git file.
 
-### LSP
+### Coc (Linter, Formatter, Snippets)
 
 For help, use `:help coc`.  
-Keybinds:
+Key binds:
+
 - `<leader>gd` go to the definition,
 - `<leader>gn` go to the next diagnostic,
 - `<leader>gp` go to the previous diagnostic,
@@ -128,24 +135,50 @@ Keybinds:
 - `<leader>gh` documentation,
 - `<leader>gf` format document.
 
+## Snippets
+
+To have snippets autocompletion, I use Coc snippets settings.
+The `install.sh` script add the `coc-settings.json` file to the right place for
+having all snippets filepath configured.
+
+Moreover, you'll need to install in vim a Coc Extension:
+
+```vim
+:CocInstall coc-snippets
+```
+
 ## Linters & fixers
 
-### Python
+The following table shows the extensions I use for linting.  
+You can install them with 
 
-For using python linters & fixers, you will need to setup a virtual env & install the linters & fixers.
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install python-lsp-server[all]
+```vim
+:CocInstall <extension>
 ```
+
+| Language   | Coc Extension    |
+|:----------:|:----------------:|
+| JSON       | coc-json         |
+| Markdown   | coc-markdownlint |
+| PHP        | coc-phpls        |
+| HTML       | coc-html         |
+| CSS        | coc-css          |
+| Javascript | coc-tsserver     |
+
+## Formatter
+
+By default my `coc-settings.json` add autoformatting on save on each filetype,
+you just need a LSP server for the filetype.
+
+But if it's not working you could use vim formatting `ggvG=`, `=` is vim command
+for formatting text.
 
 ## VM
 
-To code on a virtual machine, I use sshfs, it just mount the system of the vm on my machine and tada!  
+To code on a virtual machine, I use sshfs, it just mount the system of the vm
+on my machine and tada!  
 
 ```bash
 sudo mkdir /mnt/vm
 sudo sshfs -o allow_other -p 22 user@localhost:/home/user/ /mnt/vm/
 ```
-

@@ -186,3 +186,5 @@ nmap <leader>gR <Plug>(coc-rename)
 " Formatting selected code
 xmap <leader>gf  <Plug>(coc-format-selected)
 nmap <leader>gf  <Plug>(coc-format-selected)
+
+nmap <leader>qf  <Plug>(coc-fix-current)
