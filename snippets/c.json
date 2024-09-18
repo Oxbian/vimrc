@@ -1,319 +1,296 @@
 {
-  "Basic C main template": {
-    "scope": "c",
-    "prefix": "main",
-    "body": [
-      "#include <stdio.h>",
-      "",
-      "int main (int argc, char *argv[]) ",
-      "{",
-      "    $0",
-      "    return 0;",
-      "}"
-    ],
-    "description": "Basic main template in C"
-  },
-  "Basic C stdlib main template": {
-    "scope": "c",
-    "prefix": "libmain",
-    "body": [
-      "#include <stdio.h>",
-      "#include <stdlib.h>",
-      "",
-      "int main (int argc, char *argv[]) ",
-      "{",
-      "    $0",
-      "    return 0;",
-      "}"
-    ],
-    "description": "Basic stdlib main templace in C"
-  },
-  "If statement": {
-    "scope": "c",
-    "prefix": "if",
-    "body": [
-      "if ($1) {",
-      "    ${2:/* code here */} ",
-      "}"
-    ],
-    "description": "Creates an if statement"
-  },
-  "Else statement": {
-    "scope": "c",
-    "prefix": "else",
-    "body": [
-      "else {",
-      "    ${0:/* code here */}",
-      "}"
-    ],
-    "description": "Creates an else statement"
-  },
-  "Else if statement": {
-    "scope": "c",
-    "prefix": "elif",
-    "body": [
-      "else if ($1) {",
-      "    ${2:/* code here */}",
-      "}"
-    ],
-    "description": "Creates an else if statement"
-  },
-  "Switch": {
-    "scope": "c",
-    "prefix": "switch",
-    "body": [
-      "switch ($1) ",
-      "{",
-      "    case $2:",
-      "        $3;",
-      "        break;",
-      "",
-      "    default:",
-      "        $4;",
-      "        break;",
-      "}"
-    ],
-    "description": "Creates a void function"
-  },
-  "For loop": {
-    "scope": "c",
-    "prefix": "for",
-    "body": [
-      "for (int ${1:i} = ${2:0}; ${1:i} < $3; ++${1:i}) {",
-      "    ${4:/* code goes here */}",
-      "}"
-    ],
-    "description": "Creates a for loop"
-  },
-  "Reverse For loop": {
-    "scope": "c",
-    "prefix": "forrev",
-    "body": [
-      "for (int ${1:i} = $2; ${1:i} >= ${3:0}; --${1:i}) {",
-      "    ${4:/* code goes here */}",
-      "}"
-    ],
-    "description": "Creates a reverse for loop"
-  },
-  "Range For loop": {
-    "scope": "cpp",
-    "prefix": "forrange",
-    "body": [
-      "for (auto &${1:element} : ${2:containeur}) {",
-      "    ${3:/* code goes here */}",
-      "}"
-    ],
-    "description": "Creates a range for loop"
-  },
-  "While loop": {
-    "scope": "c",
-    "prefix": "while",
-    "body": [
-      "while ($1) {",
-      "    ${2:/* code goes here */}",
-      "}"
-    ],
-    "description": "Creates a while loop"
-  },
-  "Do...while loop": {
-    "scope": "c",
-    "prefix": "dowhile",
-    "body": [
-      "do {",
-      "    ${1:/* code goes here */}",
-      "} while($2)"
-    ],
-    "description": "Creates a do...while loop"
-  },
-  "Create linked list": {
-    "scope": "c",
-    "prefix": "clist",
-    "body": [
-      "typedef struct {",
-      "    ${1:int} value;",
-      "    struct node_t* next;",
-      "} node_t;"
-    ],
-    "description": "Creates a linked list template"
-  },
-  "Create int function": {
-    "scope": "c",
-    "prefix": "intf",
-    "body": [
-      "int $1 (${2:void})",
-      "{",
-      "    $4",
-      "    return $3;",
-      "}"
-    ],
-    "description": "Creates a function that returns an int"
-  },
-  "Create float function": {
-    "scope": "c",
-    "prefix": "floatf",
-    "body": [
-      "float $1 (${2:void}) ",
-      "{",
-      "    $4",
-      "    return $3;",
-      "}"
-    ],
-    "description": "Creates a function that returns a float"
-  },
-  "Create double function": {
-    "scope": "c",
-    "prefix": "doublef",
-    "body": [
-      "double $1 (${2:void})",
-      "{",
-      "    $4",
-      "    return $3;",
-      "}"
-    ],
-    "description": "Creates a function that returns a double"
-  },
-  "Create string function": {
-    "scope": "c",
-    "prefix": "strf",
-    "body": [
-      "char* $1 (${2:void})",
-      "{",
-      "    $4",
-      "    return $3;",
-      "}"
-    ],
-    "description": "Creates a function that returns a string"
-  },
-  "Create long function": {
-    "scope": "c",
-    "prefix": "longf",
-    "body": [
-      "long $1 (${2:void}) ",
-      "{",
-      "    $4",
-      "    return $3;",
-      "}"
-    ],
-    "description": "Creates a function that returns a long"
-  },
-  "Create short function": {
-    "scope": "c",
-    "prefix": "shortf",
-    "body": [
-      "short $1 (${2:void}) ",
-      "{",
-      "    $4",
-      "    return $3;",
-      "}"
-    ],
-    "description": "Creates a function that returns a short"
-  },
-  "Create void function": {
-    "scope": "c",
-    "prefix": "voidf",
-    "body": [
-      "void $1 (${2:void}) ",
-      "{",
-      "    $3",
-      "}"
-    ],
-    "description": "Creates a void function"
-  },
-  "Creates a header include guard C": {
-    "scope": "c",
-    "prefix": "ig",
-    "body": [
-      "#ifndef ${TM_FILENAME/(.*)\\..+$/${1:/upcase}_H/}",
-      "#define ${TM_FILENAME/(.*)\\..+$/${1:/upcase}_H/}",
-      "",
-      "${0:// Code for header body}",
-      "",
-      "#endif // ${TM_FILENAME/(.*)\\..+$/${1:/upcase}_H/}"
-    ],
-    "description": "Creates header include guard based on file name for C projets"
-  },
-  "Creates a header include guard C++": {
-    "scope": "cpp",
-    "prefix": "ig",
-    "body": [
-      "#ifndef ${TM_FILENAME/(.*)\\..+$/${1:/upcase}_HPP/}",
-      "#define ${TM_FILENAME/(.*)\\..+$/${1:/upcase}_HPP/}",
-      "",
-      "${0:// Code for header body}",
-      "",
-      "#endif // ${TM_FILENAME/(.*)\\..+$/${1:/upcase}_HPP/}"
-    ],
-    "description": "Creates header include guard based on file name for C++ projects"
-  },
-  "Include": {
-    "scope": "c",
-    "prefix": "inc",
-    "body": [
-      "#include <$0>"
-    ],
-    "description": "Include a header into a file"
-  },
-  "Malloc": {
-    "scope": "c",
-    "prefix": "malloc",
-    "body": [
-      "malloc($1 * sizeof(${2:int}))"
-    ],
-    "description": "Arrow for pointers in C & C++"
-  },
-  "fopen": {
-    "scope": "c",
-    "prefix": "fopen",
-    "body": [
-      "fopen(\"${1:monfichier}\", \"${2|r,r+,w,w+,a,a+|}\")"
-    ],
-    "description": "Open a file"
-  },
-  "define": {
-    "scope": "c",
-    "prefix": "define",
-    "body": [
-      "#define $1 $2"
-    ],
-    "description": "Define a constant"
-  },
-  "enum": {
-    "scope": "c",
-    "prefix": "enum",
-    "body": [
-      "enum $1 {$2, $3}"
-    ],
-    "description": "Arrow for pointers in C & C++"
-  },
-  "union": {
-    "scope": "c",
-    "prefix": "union",
-    "body": [
-      "union $1 {",
-      "    $2;",
-      "    $3;",
-      "}"
-    ],
-    "description": "Arrow for pointers in C & C++"
-  },
-  "struct": {
-    "scope": "c",
-    "prefix": "struct",
-    "body": [
-      "struct $1 {",
-      "${2:// Code goes here}",
-      "};"
-    ],
-    "description": "Struct in C & C++"
-  },
-  "typedef": {
-    "scope": "c",
-    "prefix": "type",
-    "body": [
-      "typedef struct _$1 {",
-      "${2:// Code goes here}",
-      "} t_$1;"
-    ],
-    "description": "Typedef struct in C & C++"
-  }
+	"Basic C main template": {
+		"scope": "c",
+		"prefix": "main",
+		"body": [
+			"#include <stdio.h>",
+			"",
+			"int main (int argc, char *argv[]) ",
+			"{",
+			"    $0",
+			"    return 0;",
+			"}"
+		],
+		"description": "Basic main template in C"
+	},
+	"Basic C stdlib main template": {
+		"scope": "c",
+		"prefix": "libmain",
+		"body": [
+			"#include <stdio.h>",
+			"#include <stdlib.h>",
+			"",
+			"int main (int argc, char *argv[]) ",
+			"{",
+			"    $0",
+			"    return 0;",
+			"}"
+		],
+		"description": "Basic stdlib main templace in C"
+	},
+	"If statement": {
+		"scope": "c",
+		"prefix": "if",
+		"body": [
+			"if ($1) {",
+			"    ${2:/* code here */} ",
+			"}"
+		],
+		"description": "Creates an if statement"
+	},
+	"Else statement": {
+		"scope": "c",
+		"prefix": "else",
+		"body": [
+			"else {",
+			"    ${0:/* code here */}",
+			"}"
+		],
+		"description": "Creates an else statement"
+	},
+	"Else if statement": {
+		"scope": "c",
+		"prefix": "elif",
+		"body": [
+			"else if ($1) {",
+			"    ${2:/* code here */}",
+			"}"
+		],
+		"description": "Creates an else if statement"
+	},
+	"Switch": {
+		"scope": "c",
+		"prefix": "switch",
+		"body": [
+			"switch ($1) ",
+			"{",
+			"    case $2:",
+			"        $3;",
+			"        break;",
+			"",
+			"    default:",
+			"        $4;",
+			"        break;",
+			"}"
+		],
+		"description": "Creates a void function"
+	},
+	"For loop": {
+		"scope": "c",
+		"prefix": "for",
+		"body": [
+			"for (int ${1:i} = ${2:0}; ${1:i} < $3; ++${1:i}) {",
+			"    ${4:/* code goes here */}",
+			"}"
+		],
+		"description": "Creates a for loop"
+	},
+	"Reverse For loop": {
+		"scope": "c",
+		"prefix": "forrev",
+		"body": [
+			"for (int ${1:i} = $2; ${1:i} >= ${3:0}; --${1:i}) {",
+			"    ${4:/* code goes here */}",
+			"}"
+		],
+		"description": "Creates a reverse for loop"
+	},
+	"While loop": {
+		"scope": "c",
+		"prefix": "while",
+		"body": [
+			"while ($1) {",
+			"    ${2:/* code goes here */}",
+			"}"
+		],
+		"description": "Creates a while loop"
+	},
+	"Do...while loop": {
+		"scope": "c",
+		"prefix": "dowhile",
+		"body": [
+			"do {",
+			"    ${1:/* code goes here */}",
+			"} while($2)"
+		],
+		"description": "Creates a do...while loop"
+	},
+	"Create linked list": {
+		"scope": "c",
+		"prefix": "clist",
+		"body": [
+			"typedef struct {",
+			"    ${1:int} value;",
+			"    struct node_t* next;",
+			"} node_t;"
+		],
+		"description": "Creates a linked list template"
+	},
+	"Create int function": {
+		"scope": "c",
+		"prefix": "intf",
+		"body": [
+			"int $1 (${2:void})",
+			"{",
+			"    $4",
+			"    return $3;",
+			"}"
+		],
+		"description": "Creates a function that returns an int"
+	},
+	"Create float function": {
+		"scope": "c",
+		"prefix": "floatf",
+		"body": [
+			"float $1 (${2:void}) ",
+			"{",
+			"    $4",
+			"    return $3;",
+			"}"
+		],
+		"description": "Creates a function that returns a float"
+	},
+	"Create double function": {
+		"scope": "c",
+		"prefix": "doublef",
+		"body": [
+			"double $1 (${2:void})",
+			"{",
+			"    $4",
+			"    return $3;",
+			"}"
+		],
+		"description": "Creates a function that returns a double"
+	},
+	"Create string function": {
+		"scope": "c",
+		"prefix": "strf",
+		"body": [
+			"char* $1 (${2:void})",
+			"{",
+			"    $4",
+			"    return $3;",
+			"}"
+		],
+		"description": "Creates a function that returns a string"
+	},
+	"Create long function": {
+		"scope": "c",
+		"prefix": "longf",
+		"body": [
+			"long $1 (${2:void}) ",
+			"{",
+			"    $4",
+			"    return $3;",
+			"}"
+		],
+		"description": "Creates a function that returns a long"
+	},
+	"Create short function": {
+		"scope": "c",
+		"prefix": "shortf",
+		"body": [
+			"short $1 (${2:void}) ",
+			"{",
+			"    $4",
+			"    return $3;",
+			"}"
+		],
+		"description": "Creates a function that returns a short"
+	},
+	"Create void function": {
+		"scope": "c",
+		"prefix": "voidf",
+		"body": [
+			"void $1 (${2:void}) ",
+			"{",
+			"    $3",
+			"}"
+		],
+		"description": "Creates a void function"
+	},
+	"Creates a header include guard C": {
+		"scope": "c",
+		"prefix": "ig",
+		"body": [
+			"#ifndef ${TM_FILENAME/(.*)\\..+$/${1:/upcase}_H/}",
+			"#define ${TM_FILENAME/(.*)\\..+$/${1:/upcase}_H/}",
+			"",
+			"${0:// Code for header body}",
+			"",
+			"#endif // ${TM_FILENAME/(.*)\\..+$/${1:/upcase}_H/}"
+		],
+		"description": "Creates header include guard based on file name for C projets"
+	},
+	"Include": {
+		"scope": "c",
+		"prefix": "inc",
+		"body": [
+			"#include <$0>"
+		],
+		"description": "Include a header into a file"
+	},
+	"Malloc": {
+		"scope": "c",
+		"prefix": "malloc",
+		"body": [
+			"malloc($1 * sizeof(${2:int}))"
+		],
+		"description": "Arrow for pointers in C & C++"
+	},
+	"fopen": {
+		"scope": "c",
+		"prefix": "fopen",
+		"body": [
+			"fopen(\"${1:monfichier}\", \"${2|r,r+,w,w+,a,a+|}\")"
+		],
+		"description": "Open a file"
+	},
+	"define": {
+		"scope": "c",
+		"prefix": "define",
+		"body": [
+			"#define $1 $2"
+		],
+		"description": "Define a constant"
+	},
+	"enum": {
+		"scope": "c",
+		"prefix": "enum",
+		"body": [
+			"enum $1 {$2, $3}"
+		],
+		"description": "Arrow for pointers in C & C++"
+	},
+	"union": {
+		"scope": "c",
+		"prefix": "union",
+		"body": [
+			"union $1 {",
+			"    $2;",
+			"    $3;",
+			"}"
+		],
+		"description": "Arrow for pointers in C & C++"
+	},
+	"struct": {
+		"scope": "c",
+		"prefix": "struct",
+		"body": [
+			"struct $1 {",
+			"${2:// Code goes here}",
+			"};"
+		],
+		"description": "Struct in C & C++"
+	},
+	"typedef": {
+		"scope": "c",
+		"prefix": "type",
+		"body": [
+			"typedef struct _$1 {",
+			"${2:// Code goes here}",
+			"} t_$1;"
+		],
+		"description": "Typedef struct in C & C++"
+	}
 }

@@ -2,8 +2,8 @@
 "         Plugins
 """"""""""""""""""""""""""
 " Install vim-plug if not found
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+if empty(glob('~/.config/vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
@@ -12,7 +12,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/vim/plugged')
 
 " UI & Themes
 Plug 'joshdick/onedark.vim' " Onedark themes for vim
@@ -35,6 +35,9 @@ filetype plugin indent on " Allow filetype detection, plugins, indentation
 """""""""""""""""""""""""
 "	Configuration
 """""""""""""""""""""""""
+" LSP
+let g:coc_global_extensions = ['coc-json', 'coc-markdownlint'] " You can add other coc extensions here
+
 " Netrw (filetree built-in vim)
 let g:netrw_keepdir = 0 " Reload buffer usefull when moving or removing file
 let g:netrw_winsize = 10 " Size of filetree buffer

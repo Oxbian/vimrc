@@ -9,6 +9,8 @@ syntax on " Show syntax color
 set number " Show line number
 colorscheme onedark " Set vim theme to onedark
 set colorcolumn=80 " Add an indicator for 80 char limit
+set textwidth=80 " Set max text width
+autocmd BufNewFile,BufRead * setlocal formatoptions=cropt " Linebreak at 80 char
 set relativenumber " Show relative line number
 set cursorline " Select the current line
 set showmatch " Show matching brackets when hovered

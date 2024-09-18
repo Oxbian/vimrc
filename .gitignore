@@ -1,9 +1,8 @@
-.vim/plugged/*
-.vim/plugged
-.vim/autoload/*
-.vim/autoload
-conf/plugged/*
-conf/plugged
-conf/autoload/*
-conf/autoload
-conf/spell/en.utf-8.add.spl
+plugged/*
+plugged
+autoload/*
+autoload
+plugged/*
+spell/*
+spell
+.netrwhist
