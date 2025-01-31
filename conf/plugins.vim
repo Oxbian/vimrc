@@ -25,7 +25,6 @@ Plug 'airblade/vim-gitgutter' " Git diff
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Tools
-Plug 'wakatime/vim-wakatime' " Wakatime
 Plug 'ap/vim-css-color' " rgb, hex color preview
 
 call plug#end()

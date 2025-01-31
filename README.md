@@ -4,25 +4,16 @@ This repo contains my vim configuration, hope it will be useful for you.
 
 ## Installation
 
-You will need `vim` and `git` to be able to use this configuration.
-
+You will need `vim` and `git` to be able to use this configuration.  
+  
 Normally if you run the `install.sh` script it will work, but if you have a
-problem, try to install vim plug and check if your problem is solved.
-
-*This vim config is expected to be cloned into `.config/vim`*
-
-```sh
-git clone https://git.arka.rocks/Oxbian/vimrc.git $HOME/.config/vim
-```
-
-**Be careful the install.sh script remove everything in `$HOME/.vim` !**
+problem, try to install vim plug and check if your problem is solved.  
+  
+**Since VIM 9.1.0327, vim can now read config from $XDG_CONFIG_HOME/vim**  
 
 ```sh
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+git clone https://git.arka.rocks/Oxbian/vimrc.git ~/config/vim  
 ```
-
-Oh and remove neovim, it make some problems with vim.
 
 ## Plugins
 
@@ -38,14 +29,12 @@ This config has just the necessary plugins installed:
 keybinds in a GUI.
 - [Vim gitgutter](https://github.com/airblade/vim-gitgutter) to see diff between
 files with git.
-- [Css color](https://github.com/ap/vim-css-color) preview css colors.
+- [Css color](https://github.com/ap/vim-css-color) preview css colors. (searching better plugins for all viewing all colors codes)
 
 ### LSP
 
 - [CoC](https://github.com/neoclide/coc.nvim) a LSP plugin that work like VsCode
 LSP, and in Node (yeah I don't like it too but no choice...).
-- [Vim Wakatime](https://github.com/wakatime/vim-wakatime) to have wakatime time
-tracking in vim.
 
 ## Command & keybinds
 
