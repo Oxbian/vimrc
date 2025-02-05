@@ -22,7 +22,7 @@ Plug 'liuchengxu/vim-which-key' " Show leader mapping cheatsheet
 Plug 'airblade/vim-gitgutter' " Git diff
 
 " Autocompletion, linter, syntax
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dense-analysis/ale'
 
 " Tools
 Plug 'ap/vim-css-color' " rgb, hex color preview
@@ -35,7 +35,25 @@ filetype plugin indent on " Allow filetype detection, plugins, indentation
 "	Configuration
 """""""""""""""""""""""""
 " LSP
-let g:coc_global_extensions = ['coc-json', 'coc-markdownlint'] " You can add other coc extensions here
+let g:ale_python_auto_virtualenv = 1
+let g:ale_completion_enabled = 1
+let g:ale_floating_preview = 1 " Show hover doc & detail in a popup
+let g:ale_fix_on_save = 1
+
+" Stop linting when writing
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_hover_cursor = 1
+let g:ale_set_balloons = 1 " Show error when mouse over it
+
+" Linters and fixers (don't forget to setup LSP as linters)
+let g:ale_linters = {
+\   'python': ['pylsp', 'flake8', 'pylint', 'mypy']
+\}
+
+let g:ale_fixers = {
+\   'python': ['black', 'isort', 'autopep8']
+\}
 
 " Netrw (filetree built-in vim)
 let g:netrw_keepdir = 0 " Reload buffer usefull when moving or removing file
@@ -54,6 +72,21 @@ let g:currentmode={
 	\ 'Rv' : 'V·Replace ',
 	\ 'c'  : 'Command ',
 	\}
+
+" Getting numbers of errors in ALE
+function! LinterStatus() abort
+    let l:counts = ale#statusline#Count(bufnr(''))
+
+    let l:all_errors = l:counts.error + l:counts.style_error
+    let l:all_non_errors = l:counts.total - l:all_errors
+
+    return l:counts.total == 0 ? 'OK' : printf(
+    \   '%dW %dE',
+    \   all_non_errors,
+    \   all_errors
+    \)
+
+endfunction
 set laststatus=2
 set statusline=
 " VIM Mode
@@ -66,6 +99,7 @@ set statusline+=%{&readonly?'\ ':''}
 set statusline+=%=%y
 set statusline+=\ \|\ %{&fileencoding?&fileencoding:&encoding}
 set statusline+=\ \|\ [%{&fileformat}\]
+set statusline+=\ \|\ %{LinterStatus()}
 " Line count and percentage
 set statusline+=\ \|\ %l:%c
 set statusline+=\ [%p%%]\ 
@@ -119,15 +153,16 @@ let g:which_key_map.h = {
     \ }
 
 " LSP key help
+" Activer WhichKey pour ALE
 let g:which_key_map.g = { 
     \ 'name' : '+LSP',
-    \ 'd' : 'go to definition',
-    \ 'n' : 'next diagnostic',
-    \ 'p' : 'previous diagnostic',
-    \ 'r' : 'go to reference',
-    \ 'R' : 'rename object',
-	\ 'y' : 'type definition',
-	\ 'i' : 'go to implementation',
-	\ 'h' : 'documentation',
-	\ 'f' : 'format document',
+    \ 'd' : [':ALEGoToDefinition', 'go to definition'],
+    \ 'n' : [':ALENext', 'next diagnostic'],
+    \ 'p' : [':ALEPrevious', 'previous diagnostic'],
+    \ 'r' : [':ALEFindReferences', 'go to reference'],
+    \ 'R' : [':ALERename', 'rename object'],
+    \ 'y' : [':ALEType', 'type definition'],
+    \ 'i' : [':ALEGoToImplementation', 'go to implementation'],
+    \ 'h' : [':ALEHover', 'documentation'],
+    \ 'f' : [':ALEFix', 'format document'],
     \ }

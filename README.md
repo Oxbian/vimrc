@@ -33,8 +33,7 @@ files with git.
 
 ### LSP
 
-- [CoC](https://github.com/neoclide/coc.nvim) a LSP plugin that work like VsCode
-LSP, and in Node (yeah I don't like it too but no choice...).
+- [ALE](https://github.com/dense-analysis) linters, fixers, completion & LSP
 
 ## Command & keybinds
 
@@ -109,9 +108,9 @@ Keybinds:
 
 Hunks are the difference between your file and the git file.
 
-### Coc (Linter, Formatter, Snippets)
+### ALE (Linter, fixers, completion, LSP)
 
-For help, use `:help coc`.  
+For help, use `:help ALE`.  
 Key binds:
 
 - `<leader>gd` go to the definition,
@@ -126,41 +125,29 @@ Key binds:
 
 ## Snippets
 
-To have snippets autocompletion, I use Coc snippets settings.
-The `install.sh` script add the `coc-settings.json` file to the right place for
-having all snippets filepath configured.
+TODO in ALE
 
-Moreover, you'll need to install in vim a Coc Extension:
+## Linters / fixers & LSP
 
-```vim
-:CocInstall coc-snippets
+Linters and fixers needed to be installed for each language used.  
+
+### Python
+
+For python, you need to have [python-lsp-server](https://github.com/python-lsp/python-lsp-server).  
+  
+It can be system wide, or just in a virtualenv.  
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install pyton-lsp-server[all]
 ```
-
-## Linters & fixers
-
-The following table shows the extensions I use for linting.  
-You can install them with 
-
-```vim
-:CocInstall <extension>
-```
-
-| Language   | Coc Extension    |
-|:----------:|:----------------:|
-| JSON       | coc-json         |
-| Markdown   | coc-markdownlint |
-| PHP        | coc-phpls        |
-| HTML       | coc-html         |
-| CSS        | coc-css          |
-| Javascript | coc-tsserver     |
 
 ## Formatter
 
-By default my `coc-settings.json` add autoformatting on save on each filetype,
-you just need a LSP server for the filetype.
-
-But if it's not working you could use vim formatting `ggvG=`, `=` is vim command
-for formatting text.
+By default my config add autoformatting on save on each filetype, you just need a LSP server for the filetype.  
+  
+But if it's not working you could use vim formatting `ggvG=`, `=` is vim command for formatting text.  
 
 ## VM
 
